@@ -5,6 +5,8 @@ import '../pages/trade_market_page.dart';
 import '../pages/social_circle_page.dart';
 import '../pages/language_learn_page.dart';
 import '../pages/personal_center_page.dart';
+import '../pages/search_page.dart';
+import '../pages/message_center_page.dart';
 
 class MainHomePage extends StatefulWidget {
   const MainHomePage({super.key});
@@ -35,12 +37,22 @@ class _MainHomePageState extends State<MainHomePage> {
           // 搜索按钮
           IconButton(
             icon: const Icon(Icons.search),
-            onPressed: () => _showTip('搜索功能待开发'),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const SearchPage()),
+              );
+            },
           ),
           // 消息按钮
           IconButton(
             icon: const Icon(Icons.message),
-            onPressed: () => _showTip('消息中心待开发'),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const MessageCenterPage()),
+              );
+            },
           ),
           // 头像（用文字替代图片，无资源依赖）
           IconButton(
@@ -66,8 +78,8 @@ class _MainHomePageState extends State<MainHomePage> {
         currentIndex: _currentIndex,
         type: BottomNavigationBarType.fixed,
         onTap: (index) => setState(() => _currentIndex = index),
-        selectedLabelStyle: const TextStyle(fontSize: 32),
-        unselectedLabelStyle: const TextStyle(fontSize: 32),
+        selectedLabelStyle: const TextStyle(fontSize: 14),
+        unselectedLabelStyle: const TextStyle(fontSize: 14),
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.grid_view), label: '作品广场'),
           BottomNavigationBarItem(icon: Icon(Icons.create), label: '创作工坊'),
@@ -83,7 +95,7 @@ class _MainHomePageState extends State<MainHomePage> {
   // 通用提示弹窗
   void _showTip(String text) {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: Text(text, style: const TextStyle(fontSize: 32)),
+      content: Text(text, style: const TextStyle(fontSize: 14)),
     ));
   }
 }

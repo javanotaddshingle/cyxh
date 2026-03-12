@@ -22,10 +22,10 @@ class AnimePlatformApp extends StatelessWidget {
             ? "Microsoft YaHei, PingFang SC, sans-serif"
             // Windows用微软雅黑，macOS/iOS用苹方，兜底用无衬线字体
             : null, // 非Web环境保持默认字体，不影响移动端
-        // 新增：统一调大AppBar标题字体
+        // 调整AppBar标题字体大小到合适尺寸
         appBarTheme: const AppBarTheme(
           titleTextStyle: TextStyle(
-            fontSize: 38,
+            fontSize: 22,
             fontWeight: FontWeight.bold,
             color: Color.fromARGB(255, 212, 75, 178),
           ),
